@@ -1,0 +1,51 @@
+<div *ngIf="showSpinner">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+  <br>
+</div>
+<h2 mat-dialog-title>{{data? "Kişi Düzenle" : "Kişi Ekle"}}</h2>
+<small>* işareti olan kısımlar, zorunlu alanlardır.</small>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="cardForm">
+    <div>
+     <mat-form-field appearance="legacy">
+        <mat-label>İsim</mat-label>
+       <input matInput placeholder="İsim" formControlName="firstName">
+       <mat-hint>*</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="legacy">
+       <mat-label>Soyisim</mat-label>
+       <input matInput placeholder="Soyisim" formControlName="lastName">
+        <mat-hint>*</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+     <mat-form-field appearance="legacy">
+       <mat-label>Telefon Numarası</mat-label>
+        <input onkeydown="javascript: return event.keyCode === 8 ||
+        event.keyCode === 46 ? true : !isNaN(Number(event.key))" matInput  placeholder="Telefon Numarası" formControlName="phoneNumber" ng-pattern="onlyNumbers">
+        <mat-hint>*</mat-hint>
+     </mat-form-field>
+  </div>
+   <div > 
+      <mat-form-field appearance="legacy">
+       <mat-label>Mail</mat-label>
+       <input matInput placeholder="Mail" formControlName="mail">
+      </mat-form-field>
+    </div>
+    <div> 
+      <mat-form-field appearance="legacy">
+       <mat-label>Açıklama</mat-label>
+       <input matInput placeholder="Açıklama" formControlName="description">
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div class="flex-grow-1 text-start" *ngIf="data">
+    <button mat-stroked-button color="warn" (click)="blockPerson(data)" [disabled]="showSpinner">{{data.block?"Engellenenlerden Kaldır":"Engelle"}}</button>
+  </div>
+  <button mat-button mat-dialog-close class="cancel">Vazgeç</button>
+  <button mat-button (click)="data? updatePerson() :addPerson()" [disabled]="cardForm.invalid || showSpinner" class="add">{{data?"Düzenle":"Ekle"}}</button>
+</mat-dialog-actions>

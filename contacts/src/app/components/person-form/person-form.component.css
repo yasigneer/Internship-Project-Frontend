@@ -1,0 +1,19 @@
+mat-form-field{
+    width: 100%;
+}
+
+h2{
+    margin-bottom: 0px;
+}
+.add
+{
+    color: white;
+    background-color: #673ab7;
+}
+.mat-button-disabled{
+    background-color: white;
+}
+.cancel
+{
+    background-color: #ebebeb;
+}

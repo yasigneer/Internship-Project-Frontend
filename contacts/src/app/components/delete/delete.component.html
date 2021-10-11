@@ -1,0 +1,7 @@
+<mat-dialog-content class="mat-typography">
+  <h3>Silinen bilgiler, geri getirelemez. Emin misiniz?</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Vazgeç</button>
+  <button (click)="deletePerson()" mat-button [mat-dialog-close]="true" cdkFocusInitial>Sil</button>
+</mat-dialog-actions>

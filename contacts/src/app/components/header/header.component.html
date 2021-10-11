@@ -1,0 +1,17 @@
+<header>
+<nav>
+  <mat-toolbar color="primary">
+    <div routerLink="" class="navIcon"><img src="https://i.imgur.com/z7PdIWW.png" height="32px"></div>
+    <div routerLink="" class="title">Kişiler</div>
+    <div class="nav-options">
+      <ul class="nav-list">
+        <a routerLink="/favorites" routerLinkActive="active"><li >Favoriler</li></a>
+        <a routerLink="/blockeds" routerLinkActive="active"><li >Engellenenler</li></a>
+      </ul>
+    </div>
+    <span class="example-spacer"></span>
+    <input #searchText (keyup)="search(searchText.value)" type="text" id="searched" placeholder="İsim, soyisim veya Numara giriniz"><label for="searched">
+      <img  class="searchIcon" src="https://i.imgur.com/icoGLP0.png" height="32px"></label>
+  </mat-toolbar>
+</nav>
+</header>
